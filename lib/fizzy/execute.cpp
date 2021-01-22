@@ -254,34 +254,22 @@ inline constexpr T rotr(T lhs, T rhs) noexcept
     return (lhs >> k) | (lhs << (num_bits - k));
 }
 
-inline constexpr uint32_t clz32(uint32_t value) noexcept
+template <typename T>
+inline constexpr T clz(T value) noexcept
 {
-    return static_cast<uint32_t>(countl_zero(value));
+    return static_cast<T>(countl_zero(value));
 }
 
-inline constexpr uint32_t ctz32(uint32_t value) noexcept
+template <typename T>
+inline constexpr T ctz(T value) noexcept
 {
-    return static_cast<uint32_t>(countr_zero(value));
+    return static_cast<T>(countr_zero(value));
 }
 
-inline constexpr uint32_t popcnt32(uint32_t value) noexcept
+template <typename T>
+inline constexpr T popcnt(T value) noexcept
 {
-    return static_cast<uint32_t>(popcount(value));
-}
-
-inline constexpr uint64_t clz64(uint64_t value) noexcept
-{
-    return static_cast<uint64_t>(countl_zero(value));
-}
-
-inline constexpr uint64_t ctz64(uint64_t value) noexcept
-{
-    return static_cast<uint64_t>(countr_zero(value));
-}
-
-inline constexpr uint64_t popcnt64(uint64_t value) noexcept
-{
-    return static_cast<uint64_t>(popcount(value));
+    return static_cast<T>(popcount(value));
 }
 
 template <typename T>
@@ -1024,17 +1012,17 @@ ExecutionResult execute(Instance& instance, FuncIdx func_idx, const Value* args,
 
         case Instr::i32_clz:
         {
-            unary_op(stack, clz32);
+            unary_op(stack, clz<uint32_t>);
             break;
         }
         case Instr::i32_ctz:
         {
-            unary_op(stack, ctz32);
+            unary_op(stack, ctz<uint32_t>);
             break;
         }
         case Instr::i32_popcnt:
         {
-            unary_op(stack, popcnt32);
+            unary_op(stack, popcnt<uint32_t>);
             break;
         }
         case Instr::i32_add:
@@ -1134,17 +1122,17 @@ ExecutionResult execute(Instance& instance, FuncIdx func_idx, const Value* args,
 
         case Instr::i64_clz:
         {
-            unary_op(stack, clz64);
+            unary_op(stack, clz<uint64_t>);
             break;
         }
         case Instr::i64_ctz:
         {
-            unary_op(stack, ctz64);
+            unary_op(stack, ctz<uint64_t>);
             break;
         }
         case Instr::i64_popcnt:
         {
-            unary_op(stack, popcnt64);
+            unary_op(stack, popcnt<uint64_t>);
             break;
         }
         case Instr::i64_add:
