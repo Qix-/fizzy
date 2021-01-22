@@ -72,19 +72,19 @@ constexpr int countr_zero(uint64_t x) noexcept
 
 namespace fizzy
 {
-constexpr int popcount(uint32_t x) noexcept
+inline constexpr int popcount(uint32_t x) noexcept
 {
     static_assert(sizeof(x) == sizeof(unsigned int));
     return __builtin_popcount(x);
 }
 
-constexpr int popcount(uint64_t x) noexcept
+inline constexpr int popcount(uint64_t x) noexcept
 {
     static_assert(sizeof(x) == sizeof(unsigned long long));
     return __builtin_popcountll(x);
 }
 
-constexpr int countl_zero(uint32_t x) noexcept
+inline constexpr int countl_zero(uint32_t x) noexcept
 {
     static_assert(sizeof(x) == sizeof(unsigned int));
     if (x == 0)
@@ -92,7 +92,7 @@ constexpr int countl_zero(uint32_t x) noexcept
     return __builtin_clz(x);
 }
 
-constexpr int countl_zero(uint64_t x) noexcept
+inline constexpr int countl_zero(uint64_t x) noexcept
 {
     static_assert(sizeof(x) == sizeof(unsigned long long));
     if (x == 0)
@@ -100,7 +100,7 @@ constexpr int countl_zero(uint64_t x) noexcept
     return __builtin_clzll(x);
 }
 
-constexpr int countr_zero(uint32_t x) noexcept
+inline constexpr int countr_zero(uint32_t x) noexcept
 {
     static_assert(sizeof(x) == sizeof(unsigned int));
     if (x == 0)
@@ -108,7 +108,7 @@ constexpr int countr_zero(uint32_t x) noexcept
     return __builtin_ctz(x);
 }
 
-constexpr int countr_zero(uint64_t x) noexcept
+inline constexpr int countr_zero(uint64_t x) noexcept
 {
     static_assert(sizeof(x) == sizeof(unsigned long long));
     if (x == 0)
