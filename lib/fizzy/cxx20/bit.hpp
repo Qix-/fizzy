@@ -36,36 +36,9 @@ template <class To, class From>
 
 namespace fizzy
 {
-constexpr int popcount(uint32_t x) noexcept
-{
-    return std::popcount(x);
-}
-
-constexpr int popcount(uint64_t x) noexcept
-{
-    return std::popcount(x);
-}
-
-constexpr int countl_zero(uint32_t x) noexcept
-{
-    return std::countl_zero(x);
-}
-
-constexpr int countl_zero(uint64_t x) noexcept
-{
-    return std::countl_zero(x);
-}
-
-constexpr int countr_zero(uint32_t x) noexcept
-{
-    return std::countr_zero(x);
-}
-
-constexpr int countr_zero(uint64_t x) noexcept
-{
-    return std::countr_zero(x);
-}
-
+using std::countl_zero;
+using std::countr_zero;
+using std::popcount;
 }  // namespace fizzy
 
 #else
