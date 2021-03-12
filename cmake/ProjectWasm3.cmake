@@ -14,12 +14,12 @@ set(wasm3_library ${binary_dir}/source/${CMAKE_STATIC_LIBRARY_PREFIX}m3${CMAKE_S
 ExternalProject_Add(wasm3
     EXCLUDE_FROM_ALL 1
     PREFIX ${prefix}
-    DOWNLOAD_NAME wasm3-348031e.tar.gz
+    DOWNLOAD_NAME wasm3-v0.4.9.tar.gz
     DOWNLOAD_DIR ${prefix}/downloads
     SOURCE_DIR ${source_dir}
     BINARY_DIR ${binary_dir}
-    URL https://github.com/wasm3/wasm3/archive/348031ec9d3fd6ad5c775d186caaf4395dd55975.tar.gz
-    URL_HASH SHA256=a089d5a47e755aee3ed741ef0cf28359be38762fd4ebdaa39131b08ea1a39202
+    URL https://github.com/wasm3/wasm3/archive/v0.4.9.tar.gz
+    URL_HASH SHA256=4a09c118fae597db046bddad5734cc536a47f9afd333855789bda6955d08a617
     CMAKE_ARGS
     -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>
     -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
